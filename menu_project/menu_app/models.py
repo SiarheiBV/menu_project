@@ -7,5 +7,6 @@ class MenuItem(models.Model):
     named_url = models.CharField(max_length=100, blank=True)
     parent = models.ForeignKey(
         'self', null=True, blank=True, on_delete=models.CASCADE)
+    menu_name = models.CharField(max_length=100)
 
     
