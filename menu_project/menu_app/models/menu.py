@@ -9,4 +9,5 @@ class MenuItem(models.Model):
         'self', null=True, blank=True, on_delete=models.CASCADE)
     menu_name = models.CharField(max_length=100)
 
-    
+    class Meta:
+        db_table = "menu_item"

@@ -1,6 +1,6 @@
 from django import template
 from django.core.cache import cache
-from menu_app.models import MenuItem
+from menu_app.models.menu import MenuItem
 from typing import Any
 
 register = template.Library()
@@ -21,7 +21,7 @@ def draw_menu(context: dict[str, Any], menu_name: str) -> str:
         for item in menu_items:
             active = "active" if current_path == item.url else ""
             menu_html += f"<li class='{active}'><a href='{item.url}'>{item.title}</a></li>"
-        menu_html += "</ul"
+        menu_html += "</ul>"
 
         cache.set(f'menu_{menu_name}', menu_html, 3600)
 
